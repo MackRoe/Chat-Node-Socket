@@ -1,4 +1,7 @@
-const socket = io()
+const socket = io("ws://localhost:3000")
+
+const messages = document.getElementById('messages')
+// not sure if this needs added or not
 
 const chat = document.querySelector('.chat-form')
 const Input = document.querySelector('.chat-input')
@@ -12,7 +15,7 @@ const renderMessage = message => {
     chatWindow.appendChild(div)
 }
 
-chat.addEventListener(', event => {
+chat.addEventListener('submit', event => {
   event.preventDefault()
   // send messages using sockets
   socket.emit('chat', Input.value)
@@ -20,5 +23,6 @@ chat.addEventListener(', event => {
 })
 
 socket.on('chat', message => {
-  console.log('From server: ', message)
+  console.log('From server: ', message);
+  renderMessage(message)
 })
