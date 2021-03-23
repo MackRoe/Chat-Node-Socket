@@ -1,4 +1,5 @@
 # TokTalk v2
+The first part of this project can be found here on github at https://github.com/MackRoe/TokTalk < Click for Commit History
 
 ## Stack
 Node.JS
